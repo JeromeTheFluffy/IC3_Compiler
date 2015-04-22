@@ -33,17 +33,14 @@ public class Parser extends Scanner throws IOException{
         String asmForKeywords[] = {""};
         public File mainFormFile = new File("out.asm", "w");
         /* generate fhe form. for use with GAS from GCC */
-        protected File generateMainForm(File file;){
-                file.write(".text\n\n\n\t");
-                file.write(".global _start\n\n\n");
-                file.write("_start:\n\n\n\t\t");
-                file.write("movl    $0,%ebx\n\t\t");
-                file.write("movl    $1,%eax\n\t\t");
-                file.write("int    $0x80\n");
-                file.write(".data\n\n");
+        /*now generate the parser*/
+        public File parse(){
+                String path = main.args[0];
+                File sourceFile = new File(path, "r");
+                File intermediateFile
         }
-        public void main(String args[]){
-                generateMainForm(mainFormFile);
+        public static void main(String args[1]){
+                //parse through ice source and return intermediate language
                 parse();
         }
         

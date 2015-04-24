@@ -6,8 +6,9 @@
 title helloWorld.
 
 # define the main() method like in C and C++
-define main(int numOfArgs, strArray [numOfArgs]){
+define main(int numOfArgs, str Array [numOfArgs]){
+  # syntax: you cannot pass literals to functions(experiment; might change)
   str hello.
   hello = "hello world!".
-  show(hello).
+  print(hello).
 }

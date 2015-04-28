@@ -17,11 +17,13 @@ public class Parser extends Scanner throws IOException{
         /*main class of the Parser. can scan chars, ints, strings, mathematical expressions and keywords*/
         //seek position (very useFul)
         int seekPos = 0;
+        File theFile;
+        Scanner source;
         //constructer:
         public Parser(String path){
               //generate new file
-              ExtendedFile *fileToParse = new ExtendedFile
-              File(path, "r");
+              File theFile = new File(path, "r");
+              Scanner source = new Scanner(theFile)
         }
         //get int from file
         public void setSeekPos(int pos){
@@ -31,6 +33,7 @@ public class Parser extends Scanner throws IOException{
                 return seekPos;
         }
         public int readInt(){
-                
+                theInt = source.nextChar();
+                return (int)theIntChar;
         }
 }

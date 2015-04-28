@@ -32,8 +32,24 @@ public class Parser extends Scanner throws IOException{
         public int getSeekPos(){
                 return seekPos;
         }
+        //read integer
         public int readInt(){
-                theInt = source.nextChar();
+                char theInt = source.nextChar();
+                seekPos += 1;
                 return (int)theIntChar;
+        }
+        //read character
+        public char readChar(){
+                char theChar = source.nextChar()
+                seekPos += 1;
+                return theChar;
+        }
+        //read string
+        public String readString(int pos){
+                theFile.seek(pos);
+                String theString;
+                while(source.nextChar() != null){
+                        
+                }
         }
 }

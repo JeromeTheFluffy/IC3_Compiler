@@ -48,8 +48,18 @@ public class Parser extends Scanner throws IOException{
         public String readString(int pos){
                 theFile.seek(pos);
                 String theString;
-                while(source.nextChar() != null){
-                        
+                while(source.nextChar() != " "){
+                        theString += source.nextChar();
+                        // add one
                 }
         }
+        // get length of a single token
+        public int getLengthOfToken(int pos){
+                theFile.seek(pos);
+                int size;
+                /*while next char is not a space */while(source.nextChar() != " "){
+                        size += 1;
+                }
+        }
+        
 }

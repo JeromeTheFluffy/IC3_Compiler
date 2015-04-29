@@ -1,5 +1,5 @@
 /*
- * ExtRuntimeException.java: Extended standard throwable for stacks
+ * ExtUnsupportedOperationException.java: Extended standard throwable for stacks
  *
  * Copyright (C) 2001 Heiko Blau
  *
@@ -33,21 +33,21 @@ package de.susebox.java.lang;
 //------------------------------------------------------------------------------
 // Imports
 //
-import java.lang.RuntimeException;
+import java.lang.UnsupportedOperationException;
 
 
 //------------------------------------------------------------------------------
-// ExtRuntimeException - definition
+// ExtUnsupportedOperationException - definition
 //
 
 /**
  * Implementation of the {@link ThrowableList} interface for the well-known JDK 
- * {@link java.lang.RuntimeException}.
+ * {@link java.lang.UnsupportedOperationException}.
  *
  * @author 	Heiko Blau
  */
-public class ExtRuntimeException
-  extends     RuntimeException
+public class ExtUnsupportedOperationException 
+  extends     UnsupportedOperationException 
   implements  ThrowableList
 {
   //---------------------------------------------------------------------------
@@ -121,26 +121,26 @@ public class ExtRuntimeException
    *
    * @param msg   message for this <code>Throwable</code> instance
    */
-  public ExtRuntimeException(String msg) {
+  public ExtUnsupportedOperationException(String msg) {
     this(null, msg, null);
   }
   
   /**
-   * This constructor should be used for wrapping another {@link java.lang.Throwable}. 
-   * While reading data an <code>IOException</code> may occur, but a certain interface 
-   * requires a <code>SQLException</code>. Simply use:
+   * This constructor should be used for wrapping another exception. While reading
+   * data an IOException may occur, but a certain interface requires a
+   * <code>SQLException</code>. Simply use:
    *<blockquote><pre>
    * try {
    *   ...
    * } catch (NullPointerException ex) {
-   *   throw new ExtNoSuchMethodException(ex);
+   *   throw new ExtUnsupportedOperationException(ex);
    * }
    *</pre></blockquote>
    *
-   * @param throwable  the <code>Throwable</code> to wrap
+   * @param ex the exception to wrap
    */
-  public ExtRuntimeException(Throwable throwable) {
-    this(throwable, null, null);
+  public ExtUnsupportedOperationException(Throwable ex) {
+    this(ex, null, null);
   }
   
   /**
@@ -156,11 +156,11 @@ public class ExtRuntimeException
    * }
    *</pre></blockquote>
    *
-   * @param throwable the inner throwable
-   * @param msg       throwable message
+   * @param ex    the inner throwable
+   * @param msg   throwable message
    */
-  public ExtRuntimeException(Throwable throwable, String msg) {
-    this(throwable, msg, null);
+  public ExtUnsupportedOperationException(Throwable ex, String msg) {
+    this(ex, msg, null);
   }
   
   /**
@@ -178,7 +178,7 @@ public class ExtRuntimeException
    * @param fmt   throwable message
    * @param args  arguments for the given format string
    */
-  public ExtRuntimeException(String fmt, Object[] args) {
+  public ExtUnsupportedOperationException(String fmt, Object[] args) {
     this(null, fmt, args);
   }
   
@@ -189,19 +189,19 @@ public class ExtRuntimeException
    * Use this constructor in language-sensitive contexts or for formalized messages.
    * The meaning of the parameters is explained in the other constructors.
    *
-   * @param throwable the inner throwable
-   * @param fmt       throwable message
-   * @param args      arguments for the given format string
+   * @param ex    the inner throwable
+   * @param fmt   throwable message
+   * @param args  arguments for the given format string
    */
-  public ExtRuntimeException(Throwable throwable, String fmt, Object[] args) {
+  public ExtUnsupportedOperationException(Throwable ex, String fmt, Object[] args) {
     super(fmt);
    
-    if (throwable != null && fmt == null) {
+    if (ex != null && fmt == null) {
       _isWrapper = true;
     } else {
       _isWrapper = false;
     }
-    _next = throwable;
+    _next = ex;
     _args = args;
   }
   
